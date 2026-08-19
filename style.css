@@ -1,0 +1,505 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ================= BODY ================= */
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+    font-family: Arial, sans-serif;
+    padding: 40px 20px;
+    transition: 0.3s;
+}
+
+
+/* ================= MAIN CONTAINER ================= */
+
+.container {
+    width: 100%;
+    max-width: 520px;
+    background-color: white;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ================= HEADER ================= */
+
+.app-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.app-header h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.app-header h1 i {
+    margin-right: 8px;
+}
+
+.app-header p {
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* ================= INPUT SECTION ================= */
+
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+/* Task input */
+
+#taskInput,
+#priorityInput,
+#dueDateInput {
+    width: 100%;
+    padding: 13px 14px;
+    font-size: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 9px;
+    outline: none;
+    background-color: white;
+    transition: 0.3s;
+}
+
+#taskInput:focus,
+#priorityInput:focus,
+#dueDateInput:focus {
+    border-color: #198754;
+    box-shadow: 0 0 5px rgba(25, 135, 84, 0.15);
+}
+
+
+/* ================= ACTION BUTTONS ================= */
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 55px;
+    gap: 10px;
+}
+
+.action-buttons button {
+    width: 100%;
+    padding: 12px 10px;
+    background-color: #198754;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.action-buttons button:hover {
+    background-color: #146c43;
+    transform: translateY(-1px);
+}
+
+
+/* Theme button */
+
+#themeBtn {
+    font-size: 18px;
+}
+
+
+/* ================= SEARCH ================= */
+
+.search-section {
+    margin-top: 22px;
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-box i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 13px 15px 13px 42px;
+    font-size: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 9px;
+    outline: none;
+    transition: 0.3s;
+}
+
+#searchInput:focus {
+    border-color: #198754;
+    box-shadow: 0 0 5px rgba(25, 135, 84, 0.15);
+}
+
+
+/* ================= FILTER BUTTONS ================= */
+
+.filter-section {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.filter-btn {
+    padding: 8px 18px;
+    background-color: #f1f3f5;
+    color: #555;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.filter-btn:hover {
+    background-color: #198754;
+    color: white;
+}
+
+.filter-btn.active {
+    background-color: #198754;
+    color: white;
+    border-color: #198754;
+}
+
+
+/* ================= TASK LIST ================= */
+
+#taskList {
+    margin-top: 22px;
+    list-style: none;
+}
+
+
+/* Individual task */
+
+#taskList li {
+    background-color: #f8f9fa;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #eeeeee;
+    transition: 0.3s;
+}
+
+#taskList li:hover {
+    background-color: #f1f3f5;
+    transform: translateY(-1px);
+}
+
+
+/* Checkbox */
+
+#taskList li input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+    accent-color: #198754;
+}
+
+
+/* ================= TASK TEXT ================= */
+
+#taskList li > span:first-of-type {
+    flex: 1;
+    font-size: 14px;
+    word-break: break-word;
+}
+
+
+/* ================= COMPLETED TASK ================= */
+
+.completed {
+    text-decoration: line-through;
+    color: #888;
+    opacity: 0.65;
+}
+
+
+/* ================= PRIORITY ================= */
+
+.priority {
+    padding: 5px 9px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.priority.low {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.priority.medium {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.priority.high {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+
+/* ================= DUE DATE ================= */
+
+.due-date {
+    font-size: 11px;
+    color: #666;
+    white-space: nowrap;
+}
+
+
+/* ================= EDIT / DELETE BUTTONS ================= */
+
+.btn-container {
+    display: flex;
+    gap: 6px;
+    margin-left: auto;
+}
+
+.edit-btn,
+.delete-btn {
+    width: 34px !important;
+    height: 34px;
+    padding: 0 !important;
+    border: none;
+    border-radius: 50% !important;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-btn {
+    background-color: #f0ad4e !important;
+}
+
+.edit-btn:hover {
+    background-color: #ec971f !important;
+}
+
+.delete-btn {
+    background-color: #dc3545 !important;
+}
+
+.delete-btn:hover {
+    background-color: #bb2d3b !important;
+}
+
+
+/* ================= DELETE SELECTED ================= */
+
+#deleteSelectedBtn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 11px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#deleteSelectedBtn:hover {
+    background-color: #bb2d3b;
+}
+
+
+/* ================= TASK COUNTERS ================= */
+
+.task-count {
+    width: 100%;
+    max-width: 520px;
+    margin: 15px auto 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+
+.count-card {
+    background-color: white;
+    padding: 13px 10px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.count-card i {
+    font-size: 18px;
+    color: #198754;
+}
+
+.count-card div {
+    display: flex;
+    flex-direction: column;
+}
+
+.count-card span {
+    font-size: 11px;
+    color: #777;
+}
+
+.count-card strong {
+    font-size: 18px;
+}
+
+
+/* ================= DARK MODE ================= */
+
+.dark {
+    background: #121212;
+    color: white;
+}
+
+.dark .container {
+    background-color: #1e1e1e;
+}
+
+.dark .app-header p {
+    color: #aaa;
+}
+
+.dark #taskInput,
+.dark #priorityInput,
+.dark #dueDateInput,
+.dark #searchInput {
+    background-color: #2b2b2b;
+    color: white;
+    border-color: #444;
+}
+
+.dark #taskInput::placeholder,
+.dark #searchInput::placeholder {
+    color: #aaa;
+}
+
+.dark #taskList li {
+    background-color: #292929;
+    border-color: #3a3a3a;
+}
+
+.dark #taskList li:hover {
+    background-color: #333;
+}
+
+.dark .due-date {
+    color: #aaa;
+}
+
+.dark .filter-btn {
+    background-color: #2b2b2b;
+    color: #ddd;
+    border-color: #444;
+}
+
+.dark .filter-btn.active,
+.dark .filter-btn:hover {
+    background-color: #198754;
+    color: white;
+}
+
+.dark .count-card {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.dark .count-card span {
+    color: #aaa;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+    .container {
+        padding: 22px 18px;
+        margin: 10px auto;
+    }
+
+    .app-header h1 {
+        font-size: 27px;
+    }
+
+    .action-buttons {
+        grid-template-columns: 1fr 1fr 50px;
+    }
+
+    #taskList li {
+        flex-wrap: wrap;
+    }
+
+    .priority,
+    .due-date {
+        font-size: 10px;
+    }
+
+    .btn-container {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .task-count {
+        gap: 7px;
+    }
+
+    .count-card {
+        padding: 10px 5px;
+    }
+
+    .count-card i {
+        display: none;
+    }
+
+    .count-card span {
+        font-size: 10px;
+    }
+
+    .count-card strong {
+        font-size: 16px;
+    }
+
+    .filter-section {
+        gap: 5px;
+    }
+
+    .filter-btn {
+        padding: 7px 13px;
+    }
+}
